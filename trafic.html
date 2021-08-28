@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Traffic Light</title>
+    <script src=""></script>
+    <style>
+        body{
+            background-color: #EFEFEF;
+        }
+        #circle{
+            margin: 10px auto;
+            border: 5px solid #3A3A3A;
+            border-radius: 10px;
+            padding: 10px;
+            width: 86px;
+            background-color: #F1F3F4;
+        }
+        #DIV1,#DIV2,#DIV3{
+            border-radius: 100%;
+            background-color: #3A3A3A;
+            border: 3PX solid #3A3A3A;  
+        }
+    </style>
+</head>
+<body>
+    <P STYLE="text-align: center;font-weight: bold;font-size: 25px;font-family: sans-serif;">Demonstrate traffic light system</P>
+    <div id ="circle">
+        <div id="div1" style="width: 80px;height: 80px;"></div><br>
+        <div id="div2" style="width: 80px;height: 80px;"></div><br>
+        <div id="div3" style="width: 80px;height: 80px;"></div>
+    </div>
+    
+</body>
+<script>
+    $(document).ready(function(){
+        var state =0;
+
+        const RED="#f44747";
+        
+        const YELLOW="#eedc31";
+        
+        const GREEN="#7fdb6a";
+        
+        const WHITE="#FFFFFF";
+        
+        const STOP=$("#div1");
+        
+        const READY=$("#div2");
+        
+        const GO=$("#div3");
+         GO.css({'background-color':GREEN});
+        
+         setInterval(function(){
+        
+         switch (state){
+             case 0:
+                 state =1;
+                 GO.css({'background-color':WHITE});
+                 STOP.css({'background-color':RED});
+                 break;
+
+                 case 1:
+                 state =2;
+                 STOP.css({'background-color':WHITE});
+                 READY.css({'background-color':YELLOW});
+                 break;
+
+                 default:
+                 state =0;
+                 READY.css({'background-color':WHITE});
+                 GO.css({'background-color':GREEN});
+                 
+         }
+
+        }, 3000);
+    });
+</script>
+</html>
