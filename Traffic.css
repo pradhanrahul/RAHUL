@@ -1,0 +1,17 @@
+body{
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+#box{
+    height: 300px;
+    width: 100px;
+    border: 2px solid white;
+    margin: 150px auto;
+}
+#green,#yellow,#red{
+    padding: 45px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    margin: 5px;
+}
