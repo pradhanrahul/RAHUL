@@ -1,0 +1,29 @@
+ *{
+    margin: 0;
+    padding: 0; 
+}
+h4{
+    font-size: 50px;
+}
+ table{
+   
+    width: 50%;
+    margin: 50px auto;
+    background-color:yellowgreen;
+} 
+ table,td{
+    border: 1px solid black;
+    padding: 5px;
+    margin: auto;
+} 
+th{
+    font-size: 30px;
+    font-weight: 700px;
+    color: blue;
+}
+td{
+    font-size: 25px;
+    color: crimson;
+    font-weight: 400px;
+
+}
