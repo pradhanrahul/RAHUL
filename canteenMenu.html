@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Lunch Dish</label>
+    <div>
+
+        <select name="lunch" id="lunch1" onclick="fill(this)" multiple>
+            <option value="Pizza">Pizza</option>
+            <option value="Burger">Burger</option>
+            <option value="Paratha">Paratha</option>
+            <option value="Dosa">Dosa</option>
+            <option value="Itly">Itly</option>
+            <option value="Poha">Poha</option>
+        </select>
+    </div>
+    <label>Dinner Dish</label>
+    <div>
+
+        <select name="dinner" id="dinner1" onclick="fill(this)" multiple>
+            <option value="Dal">Dal</option>
+            <option value="Rice">Rice</option>
+            <option value="Dalmakhni">Dalmakhni</option>
+            <option value="Paneer">Paneer</option>
+            <option value="Roti">Roti</option>
+            <option value="Razma">Razma</option>
+        </select>
+
+    </div>
+    <label>Gift Dish</label>
+    <div>
+
+        <select name="choice" id="choice1" onclick="fill(this)" multiple>
+            <option value="Colddrink">Colddrink</option>
+            <option value="Lassi">Lassi</option>
+        </select>
+
+    </div>
+    <button id="btn" click="load()">total</button>
+    <button id="clr" click="reset()">clear</button>
+    <div id="res"></div>
+    <div id="total"></div><br>
+
+</body>
+<script>
+    var data = [];
+    function fill(add) {
+        data.push(document.getElementById(add.id).value);
+        //console.log(data);
+    }
+    function load() {
+        var total = 0;
+        for (let index = 0; index < data.length; index++) {
+            const element = data[index];
+            document.getElementById("res").innerHTML += element + "<br\>"
+
+        }
+        for (let i = 0; i < data.length; i++) {
+            if (data[i] == "Razma" || data[i] == "Dalmakhni")
+                total += 60;
+            else if (data[i] == "Dal" || data[i] == "Poha")
+                total += 40;
+            else if (data[i] == "Rice" || data[i] == "Roti")
+                total += 30;
+            else if (data[i] == "Paneer" || data[i] == "Dosa")
+                total += 90;
+            else if (data[i] == "Itly" || data[i] == "Pizza")
+                total += 45;
+            else if (data[i] == "Burger" || data[i] == "Paratha")
+                total += 30;
+            else if (data[i] == "Colddrink" || data[i] == "Lassi")
+                total += 50;
+        }
+
+        document.getElementById("total").innerHTML = "Total Cost: " + total
+    }
+    function reset() {
+        document.getElementById("res").innerHTML = ""
+        document.getElementById("total").innerHTML = ""
+    }
+    document.getElementById("btn").addEventListener("click", load);
+    document.getElementById("clr").addEventListener("click", reset);
+</script>
+
+</html>
